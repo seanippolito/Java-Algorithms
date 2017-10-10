@@ -1,5 +1,3 @@
-package Sorting;
-
 import java.io.*;
 import java.util.*;
 
@@ -17,28 +15,20 @@ public class Sorting {
         int m1 = l;
         int m2 = r;
         int[] m = {m1, m2};
-        for(int i = 0; i < r; i ++) {
-            System.out.println(i + "th iteration");
-            System.out.println(x + " = x value");
-            System.out.println(a[i] + " = a[i]");
-            if (a[i] < x ) {
-                m1++;
-                System.out.println(m1 + " = m1");
-                System.out.println(a[m1] + " = a[m1]");
+        int i = l;
+        while(i <= m2) {
+            if (a[i] < x) {
                 swap(a, i, m1);
-                System.out.println("after swap a[i] = " + a[i] + " a[m1] = " + a[m1]);
-                m2++;
-                swap(a, m1, m2);
+                m1++;
+                i++;
+
             }else if (a[i] > x) {
-                m2--;
-                System.out.println(m2 + " = m2");
-                System.out.println(a[m2] + " = m2");
                 swap(a, i, m2);
-                System.out.println("after swap a[i] = " + a[i] + " a[m2] = " + a[m2]);
-                //i--;
+                m2--;
+            } else {
+                i++;
             }
         }
-        swap(a, l, m1);
         m[0] = m1;
         m[1] = m2;
         return m;
